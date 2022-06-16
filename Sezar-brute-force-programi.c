@@ -10,13 +10,15 @@ int arabul(char[], char);
 
 char metin[limit];
 int k,denenen,secA,secB,karakterBoyutu;
-
+// Yukarýda deðiþkenleri tanýmladým.
 int main() {
  
 	setlocale(LC_ALL, "Turkish");
+	//karakterler tanýmladým
     char karakter[] = "abcçdefgðhýijklmnoöprsþtuüvyzABCÇDEFGÐHIÝJKLMNOÖPRSÞTUÜVYZ";
     int parola = 3;
     karakterBoyutu = strlen(karakter);
+    //Programýn menü kýsmý hangi iþlemin yapýlacaðýný seçiyorum. seçilen deðer if ile kolþulu saðlýyorsa o iþlemi gerçekleþtiriyorum
 	printf("-------------------------------------\n");
     printf("Yapacaðýnýz iþlemi seçin:\n");
     printf("[1]-Sezar þifresini kýr (brute force)\n");
@@ -40,6 +42,9 @@ int main() {
            }
       }
 
+	   // eðer secilen deðer 1 ise yani þifrele ise
+	   // önce metin ve parola giriþi istiecek daha sonra sifrele(karakter, sifre); iþlemi ile alttaki fonksiyonu çaðýrýp
+	   // þifreleme iþlemini gerçekleþtirecektir.
 	  else if(secA==2){
           printf("-------------------------------------\n");
           printf("------ Þifrelenecek Metin -----------\n");
@@ -51,6 +56,7 @@ int main() {
           printf("Þifrelenmiþ hali:[+]\n%s\n", &metin);
           
       }
+      //eðer 2 seçilirse  öncelikli þifreli metin ve parola giriþi ister daha sonra þifre çözme fonksiyonu çaðýrýlarak þifre çözülür
      else{
         printf("Program Sonlandý ");
        
@@ -59,7 +65,8 @@ int main() {
 	system("pause");
     return 0;
 }
-
+// Þifreleme iþleminin yapýldýðý fonksiyon. karakter sayýsý verilen deger kadar kaydýrýlýyor daha sonra tekrar
+//karaktere dönüþtürülüyor.
 void sifrele(char karakter[], int parola) {
     int i;
     int harfSirasi;
@@ -75,7 +82,8 @@ void sifrele(char karakter[], int parola) {
     }
  
 }
-
+//þifreleme iþleminin tam tersi yapýlýyor karakter sayýsý ile verilen parola degeri çýkartýlýyor daha sonra mod iþlemi yapýlýp çýkan
+//sayý karakter'e dönüþtürülüyor.
 void sifreCoz(char karakter[], int parola) {
     int i;
     int harfSirasi;
@@ -91,7 +99,7 @@ void sifreCoz(char karakter[], int parola) {
     }
  
 }
-
+//Karakterin kaçýncý sýrada oldugu arabulunuyor.
 int arabul(char karakter[], char arananHarf) {
  
     int i, sayac = -1;
